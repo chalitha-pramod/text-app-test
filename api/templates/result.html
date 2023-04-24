@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Idea AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Mavena AI</h1>
+
+        <div class="mt-5">
+            <h2>Generated Idea</h2>
+            <ul>
+                {% for sentence in generated_text.split('.') %}
+                {% if sentence.strip() != '' %}
+                <li>{{ sentence.strip() }}.</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+        </div>
+       
+        <div class="mt-5">
+            <a href="/" class="btn btn-primary">Generate more ideas</a>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+<script>
+    // Get the current URL
+    var url = window.location.href;
+
+    // Remove the query string parameters from the URL
+    var newUrl = url.split("?")[0];
+
+    // Replace the current URL with the new URL
+    window.history.replaceState({}, document.title, newUrl);
+</script>
+
+</html>
